@@ -10,7 +10,7 @@ It works in two ways:
 
 Using the function with all `img` elements 
 ```javascript
-$('img').retina({
+$('img').easyretina({
     // Check for data-retina attribute. If exists, swap out image
     // If exists, swap out image from data-retina if false it looks for image with @2x suffic and swaps it.
     dataAttribute: true,
@@ -23,7 +23,7 @@ $('img').retina({
 
 Using the function with images that have a data-retina attribute 
 ```javascript
-$('img[data-retina]').retina({
+$('img[data-retina]').easyretina({
     // Check for data-retina attribute. If exists, swap out image
     // If exists, swap out image from data-retina if false it looks for image with @2x suffic and swaps it.
     dataAttribute: true,
