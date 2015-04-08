@@ -1,5 +1,5 @@
 /*!
- * jQuery EasyRetina.js plugin v0.0.10
+ * jQuery EasyRetina.js plugin v0.0.11
  * https://github.com/carhartl/jquery-cookie
  *
  * Copyright 2015, Bogdan Dragomir
@@ -55,19 +55,15 @@
             }
 
             if (settings.checkImage && newSource) {
-                function checkImage(src, good, bad) {
-                    var img = new Image();
-                    img.onload = good;
-                    img.onerror = bad;
-                    img.src = src;
-                }
 
-                checkImage(newSource, function () {
-                    $this.attr('src', newSource);
-                    $this.removeClass('retina-off');
-                    $this.addClass('retina-on');
-                }, function () {
+                $.ajax({
+                    url: newSource, type: "HEAD", success: function () {
+                        $this.attr('src', newSource);
+                        $this.removeClass('retina-off');
+                        $this.addClass('retina-on');
+                    }
                 });
+                
             } else if (newSource) {
                 $this.attr('src', newSource);
                 $this.removeClass('retina-off');
